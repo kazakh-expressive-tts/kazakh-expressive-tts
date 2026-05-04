@@ -847,6 +847,7 @@
 
     function highlightTags(text) {
         // Wrap [tag] occurrences (incl. multi-word like [long pause]) with span
+        text = text.replace(/\[([a-z][a-z_ ]*)\]\s+\[\1\]/g, '[$1]');
         return text.replace(/\[([a-z][a-z_ ]*)\]/g, '<span class="tag-mark">[$1]</span>');
     }
 
