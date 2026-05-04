@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>   
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KazEmoParaTTS: Extending Kazakh Emotional TTS Dataset with Paralinguistic Tags</title>
+    <title>Kazakh Expressive TTS: Emotional and Paralinguistic Speech Synthesis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -204,6 +204,17 @@
         .emotion-pill.sad       { background: #e3f2fd; color: #1565c0; }
         .emotion-pill.surprised { background: #f3e5f5; color: #7b1fa2; }
 
+        /* ── Tag pill (paralinguistic event) ── */
+        .tag-pill {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            padding: 2px 9px; border-radius: 4px;
+            background: var(--src-en-bg); color: var(--src-en);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
         /* ── Tag annotations inline in transcript ── */
         .tag-mark {
             display: inline-block;
@@ -328,10 +339,10 @@
             (<i>burps, cough, gasp, groan, laugh, long pause, sigh, sniffle, whispers, yawn</i>) are demonstrated.
         </div>
 
-        <!-- ════════════ akzhol ════════════ -->
-        <div class="speaker-section" id="spk-akzhol">
+        <!-- ════════════ Akzol ════════════ -->
+        <div class="speaker-section" id="spk-akzol">
             <div class="speaker-name male">
-                akzhol
+                Akzol
                 <span class="badge male">MALE</span>
             </div>
             <table>
@@ -339,11 +350,12 @@
                     <tr>
                         <th rowspan="2" style="width:90px;">Emotion</th>
                         <th class="group-real" colspan="2">Real (Ground Truth)</th>
-                        <th class="group-pred" colspan="2">Predicted (Emotion + Tag)</th>
+                        <th class="group-pred" colspan="3">Predicted (Emotion + Tag)</th>
                     </tr>
                     <tr>
                         <th class="sub-real">Transcript</th>
                         <th class="sub-real-last">Audio</th>
+                        <th class="sub-pred" style="width:110px;">Tag</th>
                         <th class="sub-pred">Transcript</th>
                         <th class="sub-pred">Audio</th>
                     </tr>
@@ -351,45 +363,71 @@
                 <tbody>
                     <tr>
                         <td class="label-cell"><span class="emotion-pill angry">angry</span></td>
-                        <td class="text-cell" id="akzhol-real-angry">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="akzhol/real/angry.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="akzhol-pred-angry">—</td>
-                        <td><audio controls preload="none"><source src="akzhol/pred/angry_groan.wav" type="audio/wav"></audio></td>
+                        <td class="text-cell" id="akzol-real-angry">—</td>
+                        <td class="border-right"><audio controls preload="none"><source src="akzol/real/angry.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">groan</span></td>
+                        <td class="text-cell" id="akzol-pred-angry-groan">—</td>
+                        <td><audio controls preload="none"><source src="akzol/pred/angry_groan.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill fearful">fearful</span></td>
-                        <td class="text-cell" id="akzhol-real-fearful">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="akzhol/real/fearful.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="akzhol-pred-fearful">—</td>
-                        <td><audio controls preload="none"><source src="akzhol/pred/fearful_gasp.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill fearful">fearful</span></td>
+                        <td class="text-cell" rowspan="2" id="akzol-real-fearful">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="akzol/real/fearful.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">gasp</span></td>
+                        <td class="text-cell" id="akzol-pred-fearful-gasp">—</td>
+                        <td><audio controls preload="none"><source src="akzol/pred/fearful_gasp.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill happy">happy</span></td>
-                        <td class="text-cell" id="akzhol-real-happy">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="akzhol/real/happy.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="akzhol-pred-happy">—</td>
-                        <td><audio controls preload="none"><source src="akzhol/pred/happy_laugh.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">whispers</span></td>
+                        <td class="text-cell" id="akzol-pred-fearful-whispers">—</td>
+                        <td><audio controls preload="none"><source src="akzol/pred/fearful_whispers.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill neutral">neutral</span></td>
-                        <td class="text-cell" id="akzhol-real-neutral">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="akzhol/real/neutral.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="akzhol-pred-neutral">—</td>
-                        <td><audio controls preload="none"><source src="akzhol/pred/neutral_cough.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill happy">happy</span></td>
+                        <td class="text-cell" rowspan="2" id="akzol-real-happy">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="akzol/real/happy.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">laugh</span></td>
+                        <td class="text-cell" id="akzol-pred-happy-laugh">—</td>
+                        <td><audio controls preload="none"><source src="akzol/pred/happy_laugh.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill sad">sad</span></td>
-                        <td class="text-cell" id="akzhol-real-sad">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="akzhol/real/sad.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="akzhol-pred-sad">—</td>
-                        <td><audio controls preload="none"><source src="akzhol/pred/sad_sniffle.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">burps</span></td>
+                        <td class="text-cell" id="akzol-pred-happy-burps">—</td>
+                        <td><audio controls preload="none"><source src="akzol/pred/happy_burps.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill neutral">neutral</span></td>
+                        <td class="text-cell" rowspan="2" id="akzol-real-neutral">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="akzol/real/neutral.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">cough</span></td>
+                        <td class="text-cell" id="akzol-pred-neutral-cough">—</td>
+                        <td><audio controls preload="none"><source src="akzol/pred/neutral_cough.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><span class="tag-pill">long_pause</span></td>
+                        <td class="text-cell" id="akzol-pred-neutral-long_pause">—</td>
+                        <td><audio controls preload="none"><source src="akzol/pred/neutral_long_pause.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill sad">sad</span></td>
+                        <td class="text-cell" rowspan="2" id="akzol-real-sad">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="akzol/real/sad.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">sniffle</span></td>
+                        <td class="text-cell" id="akzol-pred-sad-sniffle">—</td>
+                        <td><audio controls preload="none"><source src="akzol/pred/sad_sniffle.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><span class="tag-pill">sigh</span></td>
+                        <td class="text-cell" id="akzol-pred-sad-sigh">—</td>
+                        <td><audio controls preload="none"><source src="akzol/pred/sad_sigh.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
                         <td class="label-cell"><span class="emotion-pill surprised">surprised</span></td>
-                        <td class="text-cell" id="akzhol-real-surprised">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="akzhol/real/surprised.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="akzhol-pred-surprised">—</td>
-                        <td><audio controls preload="none"><source src="akzhol/pred/surprised_yawn.wav" type="audio/wav"></audio></td>
+                        <td class="text-cell" id="akzol-real-surprised">—</td>
+                        <td class="border-right"><audio controls preload="none"><source src="akzol/real/surprised.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">yawn</span></td>
+                        <td class="text-cell" id="akzol-pred-surprised-yawn">—</td>
+                        <td><audio controls preload="none"><source src="akzol/pred/surprised_yawn.wav" type="audio/wav"></audio></td>
                     </tr>
                 </tbody>
             </table>
@@ -406,57 +444,84 @@
                     <tr>
                         <th rowspan="2" style="width:90px;">Emotion</th>
                         <th class="group-real" colspan="2">Real (Ground Truth)</th>
-                        <th class="group-pred" colspan="2">Predicted (Emotion + Tag)</th>
+                        <th class="group-pred" colspan="3">Predicted (Emotion + Tag)</th>
                     </tr>
                     <tr>
                         <th class="sub-real">Transcript</th>
                         <th class="sub-real-last">Audio</th>
+                        <th class="sub-pred" style="width:110px;">Tag</th>
                         <th class="sub-pred">Transcript</th>
                         <th class="sub-pred">Audio</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill angry">angry</span></td>
-                        <td class="text-cell" id="madi-real-angry">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="madi/real/angry.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="madi-pred-angry">—</td>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill angry">angry</span></td>
+                        <td class="text-cell" rowspan="2" id="madi-real-angry">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="madi/real/angry.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">groan</span></td>
+                        <td class="text-cell" id="madi-pred-angry-groan">—</td>
+                        <td><audio controls preload="none"><source src="madi/pred/angry_groan.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><span class="tag-pill">sigh</span></td>
+                        <td class="text-cell" id="madi-pred-angry-sigh">—</td>
                         <td><audio controls preload="none"><source src="madi/pred/angry_sigh.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
                         <td class="label-cell"><span class="emotion-pill fearful">fearful</span></td>
                         <td class="text-cell" id="madi-real-fearful">—</td>
                         <td class="border-right"><audio controls preload="none"><source src="madi/real/fearful.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="madi-pred-fearful">—</td>
+                        <td class="label-cell"><span class="tag-pill">whispers</span></td>
+                        <td class="text-cell" id="madi-pred-fearful-whispers">—</td>
                         <td><audio controls preload="none"><source src="madi/pred/fearful_whispers.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill happy">happy</span></td>
-                        <td class="text-cell" id="madi-real-happy">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="madi/real/happy.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="madi-pred-happy">—</td>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill happy">happy</span></td>
+                        <td class="text-cell" rowspan="2" id="madi-real-happy">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="madi/real/happy.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">laugh</span></td>
+                        <td class="text-cell" id="madi-pred-happy-laugh">—</td>
+                        <td><audio controls preload="none"><source src="madi/pred/happy_laugh.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><span class="tag-pill">burps</span></td>
+                        <td class="text-cell" id="madi-pred-happy-burps">—</td>
                         <td><audio controls preload="none"><source src="madi/pred/happy_burps.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
                         <td class="label-cell"><span class="emotion-pill neutral">neutral</span></td>
                         <td class="text-cell" id="madi-real-neutral">—</td>
                         <td class="border-right"><audio controls preload="none"><source src="madi/real/neutral.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="madi-pred-neutral">—</td>
+                        <td class="label-cell"><span class="tag-pill">long_pause</span></td>
+                        <td class="text-cell" id="madi-pred-neutral-long_pause">—</td>
                         <td><audio controls preload="none"><source src="madi/pred/neutral_long_pause.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill sad">sad</span></td>
-                        <td class="text-cell" id="madi-real-sad">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="madi/real/sad.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="madi-pred-sad">—</td>
-                        <td><audio controls preload="none"><source src="madi/pred/sad_groan.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill sad">sad</span></td>
+                        <td class="text-cell" rowspan="2" id="madi-real-sad">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="madi/real/sad.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">sniffle</span></td>
+                        <td class="text-cell" id="madi-pred-sad-sniffle">—</td>
+                        <td><audio controls preload="none"><source src="madi/pred/sad_sniffle.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill surprised">surprised</span></td>
-                        <td class="text-cell" id="madi-real-surprised">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="madi/real/surprised.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="madi-pred-surprised">—</td>
+                        <td class="label-cell"><span class="tag-pill">cough</span></td>
+                        <td class="text-cell" id="madi-pred-sad-cough">—</td>
+                        <td><audio controls preload="none"><source src="madi/pred/sad_cough.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill surprised">surprised</span></td>
+                        <td class="text-cell" rowspan="2" id="madi-real-surprised">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="madi/real/surprised.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">gasp</span></td>
+                        <td class="text-cell" id="madi-pred-surprised-gasp">—</td>
                         <td><audio controls preload="none"><source src="madi/pred/surprised_gasp.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><span class="tag-pill">yawn</span></td>
+                        <td class="text-cell" id="madi-pred-surprised-yawn">—</td>
+                        <td><audio controls preload="none"><source src="madi/pred/surprised_yawn.wav" type="audio/wav"></audio></td>
                     </tr>
                 </tbody>
             </table>
@@ -473,11 +538,12 @@
                     <tr>
                         <th rowspan="2" style="width:90px;">Emotion</th>
                         <th class="group-real" colspan="2">Real (Ground Truth)</th>
-                        <th class="group-pred" colspan="2">Predicted (Emotion + Tag)</th>
+                        <th class="group-pred" colspan="3">Predicted (Emotion + Tag)</th>
                     </tr>
                     <tr>
                         <th class="sub-real">Transcript</th>
                         <th class="sub-real-last">Audio</th>
+                        <th class="sub-pred" style="width:110px;">Tag</th>
                         <th class="sub-pred">Transcript</th>
                         <th class="sub-pred">Audio</th>
                     </tr>
@@ -487,43 +553,69 @@
                         <td class="label-cell"><span class="emotion-pill angry">angry</span></td>
                         <td class="text-cell" id="marzhan-real-angry">—</td>
                         <td class="border-right"><audio controls preload="none"><source src="marzhan/real/angry.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="marzhan-pred-angry">—</td>
-                        <td><audio controls preload="none"><source src="marzhan/pred/angry_yawn.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">groan</span></td>
+                        <td class="text-cell" id="marzhan-pred-angry-groan">—</td>
+                        <td><audio controls preload="none"><source src="marzhan/pred/angry_groan.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill fearful">fearful</span></td>
-                        <td class="text-cell" id="marzhan-real-fearful">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="marzhan/real/fearful.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="marzhan-pred-fearful">—</td>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill fearful">fearful</span></td>
+                        <td class="text-cell" rowspan="2" id="marzhan-real-fearful">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="marzhan/real/fearful.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">gasp</span></td>
+                        <td class="text-cell" id="marzhan-pred-fearful-gasp">—</td>
+                        <td><audio controls preload="none"><source src="marzhan/pred/fearful_gasp.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><span class="tag-pill">sniffle</span></td>
+                        <td class="text-cell" id="marzhan-pred-fearful-sniffle">—</td>
                         <td><audio controls preload="none"><source src="marzhan/pred/fearful_sniffle.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill happy">happy</span></td>
-                        <td class="text-cell" id="marzhan-real-happy">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="marzhan/real/happy.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="marzhan-pred-happy">—</td>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill happy">happy</span></td>
+                        <td class="text-cell" rowspan="2" id="marzhan-real-happy">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="marzhan/real/happy.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">laugh</span></td>
+                        <td class="text-cell" id="marzhan-pred-happy-laugh">—</td>
                         <td><audio controls preload="none"><source src="marzhan/pred/happy_laugh.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill neutral">neutral</span></td>
-                        <td class="text-cell" id="marzhan-real-neutral">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="marzhan/real/neutral.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="marzhan-pred-neutral">—</td>
+                        <td class="label-cell"><span class="tag-pill">burps</span></td>
+                        <td class="text-cell" id="marzhan-pred-happy-burps">—</td>
+                        <td><audio controls preload="none"><source src="marzhan/pred/happy_burps.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill neutral">neutral</span></td>
+                        <td class="text-cell" rowspan="2" id="marzhan-real-neutral">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="marzhan/real/neutral.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">whispers</span></td>
+                        <td class="text-cell" id="marzhan-pred-neutral-whispers">—</td>
                         <td><audio controls preload="none"><source src="marzhan/pred/neutral_whispers.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="emotion-pill sad">sad</span></td>
-                        <td class="text-cell" id="marzhan-real-sad">—</td>
-                        <td class="border-right"><audio controls preload="none"><source src="marzhan/real/sad.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="marzhan-pred-sad">—</td>
+                        <td class="label-cell"><span class="tag-pill">long_pause</span></td>
+                        <td class="text-cell" id="marzhan-pred-neutral-long_pause">—</td>
+                        <td><audio controls preload="none"><source src="marzhan/pred/neutral_long_pause.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell" rowspan="2"><span class="emotion-pill sad">sad</span></td>
+                        <td class="text-cell" rowspan="2" id="marzhan-real-sad">—</td>
+                        <td class="border-right" rowspan="2"><audio controls preload="none"><source src="marzhan/real/sad.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">sigh</span></td>
+                        <td class="text-cell" id="marzhan-pred-sad-sigh">—</td>
                         <td><audio controls preload="none"><source src="marzhan/pred/sad_sigh.wav" type="audio/wav"></audio></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><span class="tag-pill">cough</span></td>
+                        <td class="text-cell" id="marzhan-pred-sad-cough">—</td>
+                        <td><audio controls preload="none"><source src="marzhan/pred/sad_cough.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
                         <td class="label-cell"><span class="emotion-pill surprised">surprised</span></td>
                         <td class="text-cell" id="marzhan-real-surprised">—</td>
                         <td class="border-right"><audio controls preload="none"><source src="marzhan/real/surprised.wav" type="audio/wav"></audio></td>
-                        <td class="text-cell" id="marzhan-pred-surprised">—</td>
-                        <td><audio controls preload="none"><source src="marzhan/pred/surprised_gasp.wav" type="audio/wav"></audio></td>
+                        <td class="label-cell"><span class="tag-pill">yawn</span></td>
+                        <td class="text-cell" id="marzhan-pred-surprised-yawn">—</td>
+                        <td><audio controls preload="none"><source src="marzhan/pred/surprised_yawn.wav" type="audio/wav"></audio></td>
                     </tr>
                 </tbody>
             </table>
@@ -558,7 +650,7 @@
             </thead>
             <tbody>
                 <tr class="real-row">
-                    <td rowspan="2">akzhol</td><td>Real</td>
+                    <td rowspan="2">Akzol</td><td>Real</td>
                     <td><span class="mos-value">3.15</span><span class="mos-ci">±0.56</span></td>
                     <td><span class="mos-value">3.65</span><span class="mos-ci">±0.52</span></td>
                     <td><span class="mos-value">3.75</span><span class="mos-ci">±0.62</span></td>
@@ -636,7 +728,7 @@
             </thead>
             <tbody>
                 <tr class="real-row">
-                    <td rowspan="2">akzhol</td><td>Real</td>
+                    <td rowspan="2">Akzol</td><td>Real</td>
                     <td><span class="mos-value">3.45</span><span class="mos-ci">±0.64</span></td>
                     <td><span class="mos-value">3.55</span><span class="mos-ci">±0.67</span></td>
                     <td><span class="mos-value">3.30</span><span class="mos-ci">±0.64</span></td>
@@ -723,12 +815,34 @@
     //   audio/{spk}/{type}/{emotion}.wav and audio/{spk}/{type}/{emotion}.txt
     // For pred files the .txt may include [tag] markers — they are highlighted.
 
-    const speakers = ['akzhol', 'madi', 'marzhan'];
+    const speakers = ['akzol', 'madi', 'marzhan'];
     const emotions = ['angry', 'fearful', 'happy', 'neutral', 'sad', 'surprised'];
+    // Each emotion maps to a list of tags. All 10 tags appear per speaker.
     const predTagMap = {
-        akzhol:   { angry: 'groan', fearful: 'gasp',     happy: 'laugh', neutral: 'cough',      sad: 'sniffle', surprised: 'yawn' },
-        madi:    { angry: 'sigh',  fearful: 'whispers', happy: 'burps', neutral: 'long_pause', sad: 'groan',   surprised: 'gasp' },
-        marzhan: { angry: 'yawn',  fearful: 'sniffle',  happy: 'laugh', neutral: 'whispers',   sad: 'sigh',    surprised: 'gasp' }
+        akzol: {
+            angry:     ['groan'],
+            fearful:   ['gasp', 'whispers'],
+            happy:     ['laugh', 'burps'],
+            neutral:   ['cough', 'long_pause'],
+            sad:       ['sniffle', 'sigh'],
+            surprised: ['yawn']
+        },
+        madi: {
+            angry:     ['groan', 'sigh'],
+            fearful:   ['whispers'],
+            happy:     ['laugh', 'burps'],
+            neutral:   ['long_pause'],
+            sad:       ['sniffle', 'cough'],
+            surprised: ['gasp', 'yawn']
+        },
+        marzhan: {
+            angry:     ['groan'],
+            fearful:   ['gasp', 'sniffle'],
+            happy:     ['laugh', 'burps'],
+            neutral:   ['whispers', 'long_pause'],
+            sad:       ['sigh', 'cough'],
+            surprised: ['yawn']
+        }
     };
 
     function highlightTags(text) {
@@ -741,26 +855,23 @@
             .then(r => { if (!r.ok) throw 0; return r.text(); })
             .then(t => {
                 const html = isPred ? highlightTags(t.trim()) : t.trim();
-                document.getElementById(cellId).innerHTML = html;
+                const el = document.getElementById(cellId);
+                if (el) el.innerHTML = html;
             })
             .catch(() => {});
     }
 
     speakers.forEach(spk => {
         emotions.forEach(emo => {
-            // Real
-            loadText(
-                `${spk}-real-${emo}`,
-                `${spk}/real/${emo}.txt`,
-                false
-            );
-            // Pred
-            const tag = predTagMap[spk][emo];
-            loadText(
-                `${spk}-pred-${emo}`,
-                `${spk}/pred/${emo}_${tag}.txt`,
-                true
-            );
+            // Real transcript — one per emotion (rowspan-merged in the table)
+            loadText(`${spk}-real-${emo}`, `${spk}/real/${emo}.txt`, false);
+            // Pred transcripts — one per (emotion, tag)
+            const tags = (predTagMap[spk] || {})[emo] || [];
+            tags.forEach(tag => {
+                loadText(`${spk}-pred-${emo}-${tag}`,
+                         `${spk}/pred/${emo}_${tag}.txt`,
+                         true);
+            });
         });
     });
 </script>
