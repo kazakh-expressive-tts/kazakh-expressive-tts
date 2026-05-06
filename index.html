@@ -238,15 +238,41 @@
             font-size: 0.85rem;
             padding: 10px 12px;
         }
+        /* Default: center every cell in MOS-style tables */
         .mos-table td {
             text-align: center;
             font-size: 0.86rem;
             padding: 8px 10px;
         }
-        #mos-results .mos-table td:first-child,
-        #mos-results .mos-table td:nth-child(2) {
+        /* Cells with rowspan are group/speaker labels → left-align */
+        .mos-table td[rowspan] {
             text-align: left;
             font-weight: 500;
+            white-space: nowrap;
+        }
+        /* Mark Source/Speaker label cells explicitly (used for cells without rowspan) */
+        .mos-table td.label-cell-mos {
+            text-align: left;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        /* ── Gender pills (Dataset Stats table) ── */
+        .gender-pill {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        .gender-pill.male {
+            background: var(--accent-male-light);
+            color: var(--accent-male);
+        }
+        .gender-pill.female {
+            background: var(--accent-female-light);
+            color: var(--accent-female);
         }
         .mos-value { font-weight: 600; }
         .mos-ci {
@@ -645,28 +671,28 @@
             <tbody>
                 <tr>
                     <td rowspan="3"><b>KazEmoTTS</b></td>
-                    <td>Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td><td>Female</td>
+                    <td class="label-cell-mos">Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td><td><span class="gender-pill female">Female</span></td>
                     <td>4,191</td><td>4,093</td><td>4,080</td><td>4,002</td><td>4,104</td><td>4,186</td>
                     <td>24,656</td><td>34.23</td><td>5.00</td><td>1.00</td><td>15.67</td>
                 </tr>
                 <tr>
-                    <td>Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td><td>Male</td>
+                    <td class="label-cell-mos">Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td><td><span class="gender-pill male">Male</span></td>
                     <td>1,765</td><td>1,732</td><td>1,690</td><td>1,730</td><td>1,699</td><td>1,686</td>
                     <td>10,302</td><td>14.11</td><td>4.93</td><td>1.02</td><td>18.16</td>
                 </tr>
                 <tr>
-                    <td>Akzhol <span style="color:var(--text-secondary);font-size:0.78rem;">(M2)</span></td><td>Male</td>
+                    <td class="label-cell-mos">Akzhol <span style="color:var(--text-secondary);font-size:0.78rem;">(M2)</span></td><td><span class="gender-pill male">Male</span></td>
                     <td>3,429</td><td>3,234</td><td>3,289</td><td>3,248</td><td>3,295</td><td>3,307</td>
                     <td>19,802</td><td>26.52</td><td>4.82</td><td>0.65</td><td>18.00</td>
                 </tr>
                 <tr>
                     <td rowspan="2"><b>KazEmoParaTTS</b></td>
-                    <td>Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td><td>Female</td>
+                    <td class="label-cell-mos">Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td><td><span class="gender-pill female">Female</span></td>
                     <td>203</td><td>147</td><td>152</td><td>154</td><td>146</td><td>161</td>
                     <td>963</td><td>1.43</td><td>5.35</td><td>2.56</td><td>13.31</td>
                 </tr>
                 <tr>
-                    <td>Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td><td>Male</td>
+                    <td class="label-cell-mos">Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td><td><span class="gender-pill male">Male</span></td>
                     <td>194</td><td>156</td><td>163</td><td>160</td><td>155</td><td>169</td>
                     <td>997</td><td>1.42</td><td>5.11</td><td>2.39</td><td>15.19</td>
                 </tr>
@@ -693,11 +719,11 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td>
+                    <td class="label-cell-mos">Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td>
                     <td>101</td><td>115</td><td>122</td><td>126</td><td>131</td><td>124</td><td>131</td><td>120</td><td>111</td>
                 </tr>
                 <tr>
-                    <td>Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td>
+                    <td class="label-cell-mos">Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td>
                     <td>102</td><td>125</td><td>134</td><td>123</td><td>118</td><td>151</td><td>143</td><td>121</td><td>110</td>
                 </tr>
             </tbody>
@@ -742,7 +768,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td>
+                    <td class="label-cell-mos">Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td>
                     <td>5.42</td><td>5.39</td><td>5.70</td><td>5.73</td><td>5.68</td><td>5.95</td>
                     <td>0.86</td>
                     <td>12.64</td><td>3.76</td>
@@ -751,7 +777,7 @@
                     <td><span class="mos-value">4.08</span><span class="mos-ci">±0.17</span></td>
                 </tr>
                 <tr>
-                    <td>Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td>
+                    <td class="label-cell-mos">Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td>
                     <td>5.62</td><td>5.82</td><td>6.03</td><td>5.57</td><td>5.91</td><td>5.82</td>
                     <td>0.83</td>
                     <td>15.16</td><td>4.71</td>
@@ -760,7 +786,7 @@
                     <td><span class="mos-value">4.17</span><span class="mos-ci">±0.18</span></td>
                 </tr>
                 <tr>
-                    <td>Akzhol <span style="color:var(--text-secondary);font-size:0.78rem;">(M2)</span></td>
+                    <td class="label-cell-mos">Akzhol <span style="color:var(--text-secondary);font-size:0.78rem;">(M2)</span></td>
                     <td>5.10</td><td>4.62</td><td>5.14</td><td>4.93</td><td>5.01</td><td>4.81</td>
                     <td>0.83</td>
                     <td>17.93</td><td>4.83</td>
@@ -789,7 +815,7 @@
             </thead>
             <tbody>
                 <tr class="pred-row">
-                    <td rowspan="2">Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td><td>Orpheus</td>
+                    <td rowspan="2">Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td><td class="label-cell-mos">Orpheus</td>
                     <td><span class="mos-value">3.47</span><span class="mos-ci">±0.34</span></td>
                     <td><span class="mos-value">3.58</span><span class="mos-ci">±0.53</span></td>
                     <td><span class="mos-value">3.66</span><span class="mos-ci">±0.47</span></td>
@@ -798,7 +824,7 @@
                     <td><span class="mos-value">3.42</span><span class="mos-ci">±0.35</span></td>
                 </tr>
                 <tr class="real-row">
-                    <td>Ground Truth</td>
+                    <td class="label-cell-mos">Ground Truth</td>
                     <td><span class="mos-value">3.75</span><span class="mos-ci">±0.45</span></td>
                     <td><span class="mos-value">3.95</span><span class="mos-ci">±0.39</span></td>
                     <td><span class="mos-value">4.30</span><span class="mos-ci">±0.40</span></td>
@@ -807,7 +833,7 @@
                     <td><span class="mos-value">4.10</span><span class="mos-ci">±0.45</span></td>
                 </tr>
                 <tr class="pred-row">
-                    <td rowspan="2">Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td><td>Orpheus</td>
+                    <td rowspan="2">Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td><td class="label-cell-mos">Orpheus</td>
                     <td><span class="mos-value">3.27</span><span class="mos-ci">±0.43</span></td>
                     <td><span class="mos-value">3.97</span><span class="mos-ci">±0.42</span></td>
                     <td><span class="mos-value">3.90</span><span class="mos-ci">±0.34</span></td>
@@ -816,7 +842,7 @@
                     <td><span class="mos-value">3.53</span><span class="mos-ci">±0.39</span></td>
                 </tr>
                 <tr class="real-row">
-                    <td>Ground Truth</td>
+                    <td class="label-cell-mos">Ground Truth</td>
                     <td><span class="mos-value">3.80</span><span class="mos-ci">±0.54</span></td>
                     <td><span class="mos-value">3.75</span><span class="mos-ci">±0.53</span></td>
                     <td><span class="mos-value">3.90</span><span class="mos-ci">±0.53</span></td>
@@ -825,7 +851,7 @@
                     <td><span class="mos-value">3.70</span><span class="mos-ci">±0.53</span></td>
                 </tr>
                 <tr class="pred-row">
-                    <td rowspan="2">Akzhol <span style="color:var(--text-secondary);font-size:0.78rem;">(M2)</span></td><td>Orpheus</td>
+                    <td rowspan="2">Akzhol <span style="color:var(--text-secondary);font-size:0.78rem;">(M2)</span></td><td class="label-cell-mos">Orpheus</td>
                     <td><span class="mos-value">3.17</span><span class="mos-ci">±0.38</span></td>
                     <td><span class="mos-value">3.71</span><span class="mos-ci">±0.58</span></td>
                     <td><span class="mos-value">3.55</span><span class="mos-ci">±0.44</span></td>
@@ -834,7 +860,7 @@
                     <td><span class="mos-value">3.81</span><span class="mos-ci">±0.48</span></td>
                 </tr>
                 <tr class="real-row">
-                    <td>Ground Truth</td>
+                    <td class="label-cell-mos">Ground Truth</td>
                     <td><span class="mos-value">3.15</span><span class="mos-ci">±0.56</span></td>
                     <td><span class="mos-value">3.65</span><span class="mos-ci">±0.52</span></td>
                     <td><span class="mos-value">3.75</span><span class="mos-ci">±0.62</span></td>
@@ -866,7 +892,7 @@
             </thead>
             <tbody>
                 <tr class="real-row">
-                    <td rowspan="2">Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td><td>ElevenLabs</td>
+                    <td rowspan="2">Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td><td class="label-cell-mos">ElevenLabs</td>
                     <td><span class="mos-value">4.14</span><span class="mos-ci">±0.55</span></td>
                     <td><span class="mos-value">3.95</span><span class="mos-ci">±0.41</span></td>
                     <td><span class="mos-value">4.15</span><span class="mos-ci">±0.38</span></td>
@@ -878,7 +904,7 @@
                     <td><span class="mos-value">4.05</span><span class="mos-ci">±0.46</span></td>
                 </tr>
                 <tr class="pred-row">
-                    <td>Orpheus</td>
+                    <td class="label-cell-mos">Orpheus</td>
                     <td><span class="mos-value">3.45</span><span class="mos-ci">±0.64</span></td>
                     <td><span class="mos-value">3.25</span><span class="mos-ci">±0.49</span></td>
                     <td><span class="mos-value">3.35</span><span class="mos-ci">±0.64</span></td>
@@ -890,7 +916,7 @@
                     <td><span class="mos-value">3.30</span><span class="mos-ci">±0.64</span></td>
                 </tr>
                 <tr class="real-row">
-                    <td rowspan="2">Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td><td>ElevenLabs</td>
+                    <td rowspan="2">Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td><td class="label-cell-mos">ElevenLabs</td>
                     <td><span class="mos-value">4.15</span><span class="mos-ci">±0.41</span></td>
                     <td><span class="mos-value">3.35</span><span class="mos-ci">±0.66</span></td>
                     <td><span class="mos-value">3.45</span><span class="mos-ci">±0.64</span></td>
@@ -902,7 +928,7 @@
                     <td><span class="mos-value">3.50</span><span class="mos-ci">±0.64</span></td>
                 </tr>
                 <tr class="pred-row">
-                    <td>Orpheus</td>
+                    <td class="label-cell-mos">Orpheus</td>
                     <td><span class="mos-value">3.85</span><span class="mos-ci">±0.54</span></td>
                     <td><span class="mos-value">3.45</span><span class="mos-ci">±0.52</span></td>
                     <td><span class="mos-value">3.15</span><span class="mos-ci">±0.62</span></td>
@@ -914,7 +940,7 @@
                     <td><span class="mos-value">3.85</span><span class="mos-ci">±0.62</span></td>
                 </tr>
                 <tr class="pred-row">
-                    <td>Akzhol <span style="color:var(--text-secondary);font-size:0.78rem;">(M2)</span></td><td>Orpheus</td>
+                    <td class="label-cell-mos">Akzhol <span style="color:var(--text-secondary);font-size:0.78rem;">(M2)</span></td><td class="label-cell-mos">Orpheus</td>
                     <td><span class="mos-value">3.55</span><span class="mos-ci">±0.67</span></td>
                     <td><span class="mos-value">3.30</span><span class="mos-ci">±0.64</span></td>
                     <td><span class="mos-value">3.30</span><span class="mos-ci">±0.62</span></td>
