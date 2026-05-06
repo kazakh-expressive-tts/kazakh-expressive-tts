@@ -336,7 +336,7 @@
             with a <b>Predicted</b> sample synthesized by our model, where the same emotion is delivered alongside
             an embedded paralinguistic event (shown as <span class="tag-mark">[tag]</span> within the transcript).
             Across the three speakers, all ten paralinguistic tags
-            (<i>burps, cough, gasp, groan, laugh, long pause, sigh, sniffle, whispers, yawn</i>) are demonstrated.
+            (<i>cough, gasp, groan, laugh, long pause, sigh, sniffle, whispers, yawn</i>) are demonstrated.
         </div>
 
         <!-- ════════════ akzhol ════════════ -->
@@ -389,11 +389,6 @@
                         <td class="label-cell"><span class="tag-pill">laugh</span></td>
                         <td class="text-cell" id="akzhol-pred-happy-laugh">—</td>
                         <td><audio controls preload="none"><source src="akzhol/pred/happy_laugh.wav" type="audio/wav"></audio></td>
-                    </tr>
-                    <tr>
-                        <td class="label-cell"><span class="tag-pill">burps</span></td>
-                        <td class="text-cell" id="akzhol-pred-happy-burps">—</td>
-                        <td><audio controls preload="none"><source src="akzhol/pred/happy_burps.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
                         <td class="label-cell" rowspan="2"><span class="emotion-pill neutral">neutral</span></td>
@@ -485,11 +480,6 @@
                         <td><audio controls preload="none"><source src="madi/pred/happy_laugh.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
-                        <td class="label-cell"><span class="tag-pill">burps</span></td>
-                        <td class="text-cell" id="madi-pred-happy-burps">—</td>
-                        <td><audio controls preload="none"><source src="madi/pred/happy_burps.wav" type="audio/wav"></audio></td>
-                    </tr>
-                    <tr>
                         <td class="label-cell"><span class="emotion-pill neutral">neutral</span></td>
                         <td class="text-cell" id="madi-real-neutral">—</td>
                         <td class="border-right"><audio controls preload="none"><source src="madi/real/neutral.wav" type="audio/wav"></audio></td>
@@ -577,11 +567,6 @@
                         <td class="label-cell"><span class="tag-pill">laugh</span></td>
                         <td class="text-cell" id="marzhan-pred-happy-laugh">—</td>
                         <td><audio controls preload="none"><source src="marzhan/pred/happy_laugh.wav" type="audio/wav"></audio></td>
-                    </tr>
-                    <tr>
-                        <td class="label-cell"><span class="tag-pill">burps</span></td>
-                        <td class="text-cell" id="marzhan-pred-happy-burps">—</td>
-                        <td><audio controls preload="none"><source src="marzhan/pred/happy_burps.wav" type="audio/wav"></audio></td>
                     </tr>
                     <tr>
                         <td class="label-cell" rowspan="2"><span class="emotion-pill neutral">neutral</span></td>
@@ -868,7 +853,6 @@
                 <tr>
                     <th>Speaker</th>
                     <th>Source</th>
-                    <th>Burp</th>
                     <th>Cough</th>
                     <th>Gasp</th>
                     <th>Groan</th>
@@ -883,7 +867,6 @@
             <tbody>
                 <tr class="real-row">
                     <td rowspan="2">Marzhan <span style="color:var(--text-secondary);font-size:0.78rem;">(F1)</span></td><td>ElevenLabs</td>
-                    <td><span class="mos-value">3.75</span><span class="mos-ci">±0.57</span></td>
                     <td><span class="mos-value">4.14</span><span class="mos-ci">±0.55</span></td>
                     <td><span class="mos-value">3.95</span><span class="mos-ci">±0.41</span></td>
                     <td><span class="mos-value">4.15</span><span class="mos-ci">±0.38</span></td>
@@ -896,7 +879,6 @@
                 </tr>
                 <tr class="pred-row">
                     <td>Orpheus</td>
-                    <td><span class="mos-value">3.65</span><span class="mos-ci">±0.64</span></td>
                     <td><span class="mos-value">3.45</span><span class="mos-ci">±0.64</span></td>
                     <td><span class="mos-value">3.25</span><span class="mos-ci">±0.49</span></td>
                     <td><span class="mos-value">3.35</span><span class="mos-ci">±0.64</span></td>
@@ -909,7 +891,6 @@
                 </tr>
                 <tr class="real-row">
                     <td rowspan="2">Madi <span style="color:var(--text-secondary);font-size:0.78rem;">(M1)</span></td><td>ElevenLabs</td>
-                    <td><span class="mos-value">3.50</span><span class="mos-ci">±0.58</span></td>
                     <td><span class="mos-value">4.15</span><span class="mos-ci">±0.41</span></td>
                     <td><span class="mos-value">3.35</span><span class="mos-ci">±0.66</span></td>
                     <td><span class="mos-value">3.45</span><span class="mos-ci">±0.64</span></td>
@@ -922,7 +903,6 @@
                 </tr>
                 <tr class="pred-row">
                     <td>Orpheus</td>
-                    <td><span class="mos-value">3.45</span><span class="mos-ci">±0.72</span></td>
                     <td><span class="mos-value">3.85</span><span class="mos-ci">±0.54</span></td>
                     <td><span class="mos-value">3.45</span><span class="mos-ci">±0.52</span></td>
                     <td><span class="mos-value">3.15</span><span class="mos-ci">±0.62</span></td>
@@ -935,7 +915,6 @@
                 </tr>
                 <tr class="pred-row">
                     <td>Akzhol <span style="color:var(--text-secondary);font-size:0.78rem;">(M2)</span></td><td>Orpheus</td>
-                    <td><span class="mos-value">3.45</span><span class="mos-ci">±0.64</span></td>
                     <td><span class="mos-value">3.55</span><span class="mos-ci">±0.67</span></td>
                     <td><span class="mos-value">3.30</span><span class="mos-ci">±0.64</span></td>
                     <td><span class="mos-value">3.30</span><span class="mos-ci">±0.62</span></td>
@@ -972,7 +951,7 @@
         akzhol: {
             angry:     ['groan'],
             fearful:   ['gasp', 'whispers'],
-            happy:     ['laugh', 'burps'],
+            happy:     ['laugh'],
             neutral:   ['cough', 'long_pause'],
             sad:       ['sniffle', 'sigh'],
             surprised: ['yawn']
@@ -980,7 +959,7 @@
         madi: {
             angry:     ['groan', 'sigh'],
             fearful:   ['whispers'],
-            happy:     ['laugh', 'burps'],
+            happy:     ['laugh'],
             neutral:   ['long_pause'],
             sad:       ['sniffle', 'cough'],
             surprised: ['gasp', 'yawn']
@@ -988,7 +967,7 @@
         marzhan: {
             angry:     ['groan'],
             fearful:   ['gasp', 'sniffle'],
-            happy:     ['laugh', 'burps'],
+            happy:     ['laugh'],
             neutral:   ['whispers', 'long_pause'],
             sad:       ['sigh', 'cough'],
             surprised: ['yawn']
