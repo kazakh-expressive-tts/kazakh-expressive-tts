@@ -306,6 +306,15 @@
             font-weight: 600;
         }
 
+        narrow viewports */
+        .mos-table.speaker-grouped {
+            min-width: 0;
+        }
+        .mos-table.speaker-grouped td,
+        .mos-table.speaker-grouped th {
+            padding: 8px 6px;
+        }
+
         /* ── Footer ─────────────────────── */
         footer {
             text-align: center; padding: 40px 0;
@@ -313,7 +322,6 @@
             margin-top: 48px; color: var(--text-secondary); font-size: 0.85rem;
         }
 
-        /* ── Responsive ─────────────────── */
         @media (max-width: 768px) {
             h1 { font-size: 1.3rem; }
             .container { padding: 0 12px; }
@@ -322,6 +330,18 @@
             table { font-size: 0.82rem; }
             thead th, tbody td { padding: 8px 6px; }
             .text-cell { max-width: 140px; font-size: 0.78rem; }
+            /* Compact MOS tables so F1/M1/M2 fit without horizontal scroll */
+            .mos-table.speaker-grouped td,
+            .mos-table.speaker-grouped th {
+                padding: 6px 3px;
+                font-size: 0.74rem;
+            }
+            .mos-table.speaker-grouped thead th[colspan] {
+                font-size: 0.82rem;
+            }
+            .mos-table.speaker-grouped thead tr:nth-child(2) th {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -721,7 +741,7 @@
 
         <h3 class="sub">Distribution of Non-Verbal Vocalizations (KazExpTTS)</h3>
         <div class="mos-wrap">
-        <table class="mos-table" style="min-width:760px;">
+        <table class="mos-table" style="min-width:0;">
             <thead>
                 <tr>
                     <th>Speaker</th>
@@ -818,7 +838,7 @@
         
         <h3 class="sub">MOS Results for Emotion Naturalness (OT: Orpheus-TTS, GT: Ground Truth)</h3>
         <div class="mos-wrap">
-        <table class="mos-table speaker-grouped" style="min-width:560px;">
+        <table class="mos-table speaker-grouped">
             <thead>
                 <tr>
                     <th rowspan="2">Emotion</th>
